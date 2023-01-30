@@ -3,6 +3,7 @@ import axios from "axios";
 
 // Actions
 export function getBpns(token, customerUser) {
+
   return axios
     .get(process.env.REACT_APP_GET_BPNS, {
       params: {

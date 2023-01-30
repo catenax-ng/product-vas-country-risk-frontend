@@ -18,7 +18,6 @@ const DeleteUpdateComponent = ({
   const { report, reportValuesContext } = useContext(ReportContext);
 
   const decideAction = () => {
-    console.log("UserOperation");
     if (deleteUpdateData.operation === "Save Changes") {
       closeDialogsAndSave();
     } else if (deleteUpdateData.operation === "Delete Report") {
