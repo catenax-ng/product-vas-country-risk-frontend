@@ -4,7 +4,7 @@ import axios from "axios";
 // Actions
 export function getRatingsByYear(Year, token, customerUser) {
   var yearAPI;
-  console.log("process", process);
+  console.log("process", process.env);
   console.log(
     "getRatingsByYear",
     process.env.REACT_APP_DASHBOARD_URL_RATINGSTABLE
