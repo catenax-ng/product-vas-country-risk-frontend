@@ -4,7 +4,11 @@ import axios from "axios";
 // Actions
 export function getRatingsByYear(Year, token, customerUser) {
   var yearAPI;
-  console.log("getRatingsByYear");
+  console.log("process", process);
+  console.log(
+    "getRatingsByYear",
+    process.env.REACT_APP_DASHBOARD_URL_RATINGSTABLE
+  );
   if (Year === "") {
     yearAPI = new Date().getFullYear();
   } else {
