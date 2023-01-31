@@ -11,17 +11,17 @@ import { getHostname } from "./components/services/EnvironmentService";
 
 const hostname = getHostname();
 if (hostname === "country-risk-dashboard.dev.demo.catena-x.net")
-  import ('./index-dev.scss');
+  import("./index-dev.scss");
 if (hostname === "country-risk-dashboard.int.demo.catena-x.net")
-  import ('./index-int.scss');
+  import("./index-int.scss");
 else {
-  import ('./index-dev.scss');
+  import("./index-dev.scss");
 }
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 UserService.init((user) => {
-  console.log(user);
   console.log("process", process.env);
+  console.log(user);
   root.render(
     <React.StrictMode>
       <SharedCssBaseline />
