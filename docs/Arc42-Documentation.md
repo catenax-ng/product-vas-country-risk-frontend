@@ -20,7 +20,7 @@ The Business challenge is to have awareness towards their business partners just
 
 The main part of the country risk score are information per country regarding corruption, political stability, economic risk and social and structural figures.
 
-### Business Solution Target Group 
+### Business Solution Target Group
 
 Compliance, Legal, Purchasing, Customer Service or other Company functional departments, who work together with Business Partners.
 
@@ -38,7 +38,7 @@ Compliance, Legal, Purchasing, Customer Service or other Company functional depa
 
 ### Benefit Hypothesis & Problem Statement
 
-The benefit is to get to know your business partner or potential business partners better. Through more information better decisions can be made, like e.g. in a tender situation or from a marketing point of view. 
+The benefit is to get to know your business partner or potential business partners better. Through more information better decisions can be made, like e.g. in a tender situation or from a marketing point of view.
 
 - This Catena-X solution does not only integrate data from various sources but also matches this data with the existent business partners to enable a risk view towards your customer and supplier base.
 - Reduced effort for target group
@@ -53,23 +53,20 @@ The benefit is to get to know your business partner or potential business partne
 
 ## Stakeholders {#_stakeholders}
 
-+-------------+---------------------------+---------------------------+
-| Role/Name   | Contact                   | Expectations              |
-+=============+===========================+===========================+
-| *           | *\<Contact-1\>*           | *\<Expectation-1\>*       |
-| \<Role-1\>* |                           |                           |
-+-------------+---------------------------+---------------------------+
-| *           | *\<Contact-2\>*           | *\<Expectation-2\>*       |
-| \<Role-2\>* |                           |                           |
-+-------------+---------------------------+---------------------------+
+Role/Name | Contact                                                                                                                                                                                                     | Expectations
+--------- |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------| -----------
+Member Company | A company that participates in the Catena-X ecosystem (use-cases and data sharing).                                                                                                                         | Participate in the overal value proposition/stream provided by Catena-X.
+Company Admin | A person that manages a single member companies integration into the dataspace on behalf of his employer.                                                                                                   | Manage and monitor the proper integration and function of a member company within the Catena-X ecosystem.
+Company User | A person that acts within the provided functionality of Catena-X on behalf of his employer (that is a member company) | Execute various permitted tasks on behalf of a member company the user is assigned to.
+
 
 # Architecture Constraints {#section-architecture-constraints}
 
 - Homogenous UI/UX design across all user facing elements.
 - Run anywhere: can be deployed as a docker image, e. g. on Kubernetes (platform-independent, cloud, on prem or local).
 - Modular design: core-components are loosely coupled.
-- Freedom of choice for technology components stops where UX is negatively impacted. 
-(currently under revision by the overall catena architecture roundtable)
+- Freedom of choice for technology components stops where UX is negatively impacted.
+  (currently under revision by the overall catena architecture roundtable)
 - Roles & Rights Matrix: Roles & Rights Concept
 
 ## Roles Rights Management
@@ -177,7 +174,7 @@ Oecd	tbd
 
 
 ##### Possible Data Sources for Country Risk Assessments
-Commercial Providers 
+Commercial Providers
 Control Risk Security Risk Forecast 2021 - (e.g. (Data)theft, fraud, physical damage to production facilities)
 Control Risk Political Stability Forecast 2021 - (e.g., uncertainties in jurisdictions, expropriation, sanctions)
 Euler Hermes Country Risk Ratings (189 Countries, Economic Risk, Business Environmental Risk, Political Risk, Commercial Risk, Financing Risk)
@@ -191,17 +188,12 @@ Dun & Bradstreet, Country Risk ( http://www.dnbcountryrisk.com/, 14 Scores)
 
 ![Technical Building](../docs/image2022-10-26_18-42-52.png)
 
-+-------------------+-----------------------------------------------------------------+
-|  Topic            | Technologie                                                     |
-+===================+=================================================================+
-| Backend           | Rest API, Java, KeyCloak                                        |
-+-------------------+-----------------------------------------------------------------+
-| Front-End         | Typescript, ReactJS, React-Simple-Maps                          |
-+-------------------+-----------------------------------------------------------------+
-| Infrastructure    | Postgres Database, Azure, Github, ArgoCD, SonarCloud, VeraCode  |
-+-------------------+-----------------------------------------------------------------+
-| UI/UX             | HTML, JavaScript, CSS                                           |
-+-------------------+-----------------------------------------------------------------+
+Topic     | Technologie
+--------- | -------  
+Backend           | Rest API, Java, KeyCloak
+Front-End         | Typescript, ReactJS, React-Simple-Maps
+Infrastructure    | Postgres Database, Azure, Github, ArgoCD, SonarCloud, VeraCode
+UI/UX             | HTML, JavaScript, CSS
 
 
 # Solution Strategy {#section-solution-strategy}
@@ -265,7 +257,7 @@ It is necessary for the user to select one or more ratings for this table to be 
 
 ![Picker](../docs/image2022-10-11_8-23-17.png)
 
-In this component, we do one call to one API to populate the dropdown menu with a selection of countries. The API used is the getBpnCountries and as explained in the APIs and Swagger section, it retrieves all the countries that are associated to the Business partners. 
+In this component, we do one call to one API to populate the dropdown menu with a selection of countries. The API used is the getBpnCountries and as explained in the APIs and Swagger section, it retrieves all the countries that are associated to the Business partners.
 
 ![PickerAPi](/Arc 42\image2022-10-11_9-13-22.png)
 
@@ -273,7 +265,7 @@ In this component, we do one call to one API to populate the dropdown menu with 
 
 ![CompanyView](../docs/image2022-10-11_8-30-59.png)
 
-For this component, it is necessary to call three different APIs. The APIs used are the getBpnCountries, getCountryFilterByISO2 and getTableInfo.  With the data that we get from this APIs, and also with the value from the selected country in the country picker component, we can present on the map the markers for the Business Partners of the selected country with some information associated to the markers, like in the example shown bellow. 
+For this component, it is necessary to call three different APIs. The APIs used are the getBpnCountries, getCountryFilterByISO2 and getTableInfo.  With the data that we get from this APIs, and also with the value from the selected country in the country picker component, we can present on the map the markers for the Business Partners of the selected country with some information associated to the markers, like in the example shown bellow.
 
 ![CompanyViewAPI](../docs/image2022-10-11_9-12-26.png)
 
@@ -319,11 +311,11 @@ To contribute to the Development please follow these Branching guidelines in the
 ![getDashboardTableinfo](../docs/DashBoardResource_getAllDashBoardTable.jpg)
 In the DashBoardResource we invoke the method getTableInfo, that is inside the DashboardService.
 
-In there we invoke the method getTableInfo, which is situated in the WorldMapAndTableLogicService. Inside this method is were most of the logic is located. 
+In there we invoke the method getTableInfo, which is situated in the WorldMapAndTableLogicService. Inside this method is were most of the logic is located.
 
 In 1.1.1.1, we invoke the method getExternalBusinessPartners from the ExternalBusinessPartnersLogicService, in which we pass the object companyUser. In this method we return Business Partners associated to a Company User.
 
-In 1.1.1.2, we invoke the method getExternalPartnersCountry from the ExternalBusinessPartnersLogicService, in which we pass the object companyUser. In this method we return the Countries from Business Partners associated to a Company User. 
+In 1.1.1.2, we invoke the method getExternalPartnersCountry from the ExternalBusinessPartnersLogicService, in which we pass the object companyUser. In this method we return the Countries from Business Partners associated to a Company User.
 
 In 1.1.1.3, we invoke the method findByRatingAndCountryAndScoreGreaterThanAndYear from the DataSourceValueService. In this method we pass countryList (List of countries from Business Partners associated to a Company User), dataSources (List of datasources names) and the year (Integer). After this we call a similar method (1.1.1.3.1), but this time it is inside the DataSourceValueRepository. In the Repository is were the data from the Database is retrieved using Query's in this case.
 
@@ -354,9 +346,9 @@ The first important method Get World Map Info is divided into three steps.
 
 Examples of the calculation done to get the score for each country:
 
-Formula: Score = ( rating1Score * weight1 ) + (rating2Score * weight2 ) 
+Formula: Score = ( rating1Score * weight1 ) + (rating2Score * weight2 )
 
-Score: Country → Germany , Score = ( 36 from CPI Rating * 0.4 % ) +  50 from Basel * 0.6% ) 
+Score: Country → Germany , Score = ( 36 from CPI Rating * 0.4 % ) +  50 from Basel * 0.6% )
 
 
 #### Endpoint: /dashboard/allYears
@@ -427,7 +419,7 @@ This information flows through various methods (1, 1.1) until it reaches the met
 
 In this method, firstly it is invoked the findAll method (1.1.1.1) which gets all the countrys with an distinct ISO2 code (1.1.1.2) and this data is stored in the List of CountryDTO. After that the List is iterated using a forEach Statment (1.1.1.3), and inside of it it is invoked the getTotalBpnByCountry (1.1.1.3.1) from the ExternalBussinessPartnersLogicService class.
 
-The method getTotalBpnByCountry (1.1.1.3.1) receives as parameters an CountryDTO from the iteration of the List of CountryDTO that was returned on the method (1.1.1.1) and an CompanyUserDTO. Inside of the method it is invoked the getExternalBusinessPartners (1.1.1.3.1.1) which returns Business Partners associated to a Company User and this data is stored inside an List of BusinessPartnersDTO, which will then be used to filter the number of Business Partners present in the countries retrieved earlier in the 1.1.1.1 method. 
+The method getTotalBpnByCountry (1.1.1.3.1) receives as parameters an CountryDTO from the iteration of the List of CountryDTO that was returned on the method (1.1.1.1) and an CompanyUserDTO. Inside of the method it is invoked the getExternalBusinessPartners (1.1.1.3.1.1) which returns Business Partners associated to a Company User and this data is stored inside an List of BusinessPartnersDTO, which will then be used to filter the number of Business Partners present in the countries retrieved earlier in the 1.1.1.1 method.
 
 After that a value (Long) is returned consequently until the last List element is reached and using an setter method (setTotalBpn) it is added an value to the totalBpn variable in the Object of Countries List.
 
@@ -440,7 +432,7 @@ After that, the List of CountryDTO's id returned all the way through to the Dash
 
 This endpoint retrieves all the Business partners associated to a company. In the DashboardResource we invoke the getExternalBusinessPartners method, in which we send through an CompanyUser (1.1).
 
-Inside the DashboardService class we return the result from the method getExternalBusinessPartners (1.1.1) returns Business Partners associated to a Company User. 
+Inside the DashboardService class we return the result from the method getExternalBusinessPartners (1.1.1) returns Business Partners associated to a Company User.
 
 In the end, after the data is retrieved, this data is returned as a List of BussinessPartners objects to the main class DashBoardResource in the method getCompanyBpns.
 
@@ -468,7 +460,7 @@ The method 1.1.1 getOrCreate does the following: if the presented company user d
 
 After that, in the 1.1.2 saveRanges method, that is inside the RangeLogicService class, it is passed as a parameter the returned CompanyUser and the RangesDTO.
 
-Inside this method (1.1.2), firstly it is invoked the method 1.1.2.1 getUserRanges which returns a List of RangeDTO related to the company user if this exists on the database. 
+Inside this method (1.1.2), firstly it is invoked the method 1.1.2.1 getUserRanges which returns a List of RangeDTO related to the company user if this exists on the database.
 
 In 1.1.2.2 an iteration is made if the returned List is empty. In this iteration it is created an rangeDTO for the related company user and saved in 1.1.2.2.1.
 
@@ -496,7 +488,7 @@ After that, this lists are joined into a biggest ReportDTO List, that then is re
 
 In this endpoint, it is received as a parameter the CompanyUser and an ReportDTO that will be saved. It is used to save an ReportDTO related to the CompanyUser parameter received.
 
-The method 1.1.1 getOrCreate will receive the parameter CompanyUser, and will do a verification if that user is already created. If not it will create that user. 
+The method 1.1.1 getOrCreate will receive the parameter CompanyUser, and will do a verification if that user is already created. If not it will create that user.
 
 After that, on the 1.1.2 saveReport, both the companyUserDTO recently created or already present on the database and the ReportDTO will be used as variable on that method.
 
@@ -506,7 +498,7 @@ After this an verification is done onto the recently saved ReportDTO, to check i
 
 After this an Http OK alert is shown.
 
-If the report would been duplicated, an Http Bad Request status would be shown, and the same if some failure would occur on the process. 
+If the report would been duplicated, an Http Bad Request status would be shown, and the same if some failure would occur on the process.
 
 
 #### Endpoint: /dashboard/shareReports
@@ -515,7 +507,7 @@ If the report would been duplicated, an Http Bad Request status would be shown, 
 
 In this endpoint, it is received as a parameter the CompanyUser and an ReportDTO that will be used to be shared. It is used to share an ReportDTO related to the CompanyUser parameter received.
 
-The method 1.1.1 findByNameEmailAndCompany will receive the name, email and company from the ReportDTO, and will do a verification if that user exists. If not it will show an Http status not found. 
+The method 1.1.1 findByNameEmailAndCompany will receive the name, email and company from the ReportDTO, and will do a verification if that user exists. If not it will show an Http status not found.
 
 After that, on the 1.1.2 saveReport, both the companyUserDTO recently created or already present on the database and the ReportDTO will be used as variable on that method.
 
@@ -525,7 +517,7 @@ After this an verification is done onto the recently saved ReportDTO, to check i
 
 After this an Http OK alert is shown.
 
-If the report would been duplicated, an Http Bad Request status would be shown, and the same if some failure would occur on the process. 
+If the report would been duplicated, an Http Bad Request status would be shown, and the same if some failure would occur on the process.
 
 
 #### Endpoint: /dashboard/updateReports
@@ -534,7 +526,7 @@ If the report would been duplicated, an Http Bad Request status would be shown, 
 
 In this endpoint, it is received as a parameter the CompanyUser and an ReportDTO that will be used to be upated. It is used to update an ReportDTO related to the CompanyUser parameter received.
 
-The method 1.1.1 getOrCreate will receive the parameter CompanyUser, and will do a verification if that user is already created. If not it will create that user. 
+The method 1.1.1 getOrCreate will receive the parameter CompanyUser, and will do a verification if that user is already created. If not it will create that user.
 
 After that, on the 1.1.2 saveReport, both the companyUserDTO recently created or already present on the database and the ReportDTO will be used as variable on that method.
 
@@ -544,7 +536,7 @@ Else if this does not occur, an validation is done with the method 1.1.2.1.3 val
 
 After the 1.1.2.1.3 verification, the respective ReportValues are found according to the ReportDTO, and each found values are firstly deleted and then saved with the new information.
 
-After this an Http no content alert is shown, as a sign that the request has been fulfilled. 
+After this an Http no content alert is shown, as a sign that the request has been fulfilled.
 
 
 #### Endpoint: /dashboard/getReportsValueByReport
@@ -594,7 +586,7 @@ After this, an for each clause is done into the received list of businessPartner
 
 After this, an List of String is created that will store all countries related to the BusinessPartnerDTO (1.1.1.3) and is populated according to the BusinessPartnetDTO countries.
 
-Then, an List of String that will get the name of the Data Sources will also be populated according the DataSourceDTO. 
+Then, an List of String that will get the name of the Data Sources will also be populated according the DataSourceDTO.
 
 With this, the DataSource parameter will be iterated with the for each clause, and an List of DataDTO will be filled according with the method 1.1.1.3.1.1, using as parameter both DataSource names and countries String list.
 
@@ -607,9 +599,9 @@ Finnaly, the mapping will be done for each ShareDTO, that then will return insid
 
 This endpoint receives and CompanyUser and also an Long variable which is the id. It is used to delete an Report.
 
-Firstly in the method 1.1.1.1 it is used the report id to request the Report associated to that id. If this is not found, and Http Not Found error is presented. 
+Firstly in the method 1.1.1.1 it is used the report id to request the Report associated to that id. If this is not found, and Http Not Found error is presented.
 
-If that is not the case, an verification is done using the 1.1.1.3 validatePermissionToChangeReport method, which is where an verification is done to see if the found report values (CompanyName, Name) are the same as the CompanyUser, and also if the CompanyUser is an Admin, which only the Admin can delete an report in this case.   
+If that is not the case, an verification is done using the 1.1.1.3 validatePermissionToChangeReport method, which is where an verification is done to see if the found report values (CompanyName, Name) are the same as the CompanyUser, and also if the CompanyUser is an Admin, which only the Admin can delete an report in this case.
 
 If the CompanyUser in not an Admin, and Http Unauthorized is presented.
 
@@ -624,9 +616,9 @@ After this, in the main class DashBoardResource, and Http no content is presente
 
 This endpoint receives and CompanyUser and also an Long variable which is the id. It is used to delete an Rating.
 
-Firstly in the method 1.1.1.1 it is used the rating id to request the Rating associated to that id. If this is not found, and Http Not Found error is presented. 
+Firstly in the method 1.1.1.1 it is used the rating id to request the Rating associated to that id. If this is not found, and Http Not Found error is presented.
 
-If that is not the case, an verification is done to see if the found rating values (CompanyName, Name, Email) are the same as the CompanyUser, and also if the CompanyUser is an Admin, which only the Admin can delete an rating in this case. 
+If that is not the case, an verification is done to see if the found rating values (CompanyName, Name, Email) are the same as the CompanyUser, and also if the CompanyUser is an Admin, which only the Admin can delete an rating in this case.
 
 If the CompanyUser in not an Admin, and Http Unauthorized is presented.
 
